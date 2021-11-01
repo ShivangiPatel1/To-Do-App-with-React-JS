@@ -79,6 +79,11 @@ body {
   cursor: pointer;
   text-transform: capitalize;
 }
+.important{
+  color:red;
+  font-size:2rem;
+  text-decoration: underline;
+}
 .btn.toggle-btn {
   border-width: 1px;
   border-color: #d3d3d3;
