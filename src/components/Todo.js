@@ -4,8 +4,6 @@ import React, { useState, useRef ,useEffect } from "react";
 const Todo = (props) => {
   const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState("");
-  const [isImportant,setImportant]=useState(false);
-
   const editFieldRef = useRef(null);
   const editButtonRef = useRef(null);
   function usePrevious(value) {
@@ -34,10 +32,10 @@ const Todo = (props) => {
     setNewName("");
     setEditing(false);
   }
+  
+  
   // Task-3
 
-
-  
   const editingTemplate = (
     <form className="stack-small" onSubmit={(e) => handleSubmit(e)}>
       <div className="form-group">
@@ -57,7 +55,7 @@ const Todo = (props) => {
         <button
           type="button"
           className="btn todo-cancel"
-          onClick={() => setEditing(false)}
+          onClick={() => setEditing(true)}
         >
           Cancel
           <span className="visually-hidden">renaming {props.name}</span>
@@ -78,7 +76,7 @@ const Todo = (props) => {
           defaultChecked={props.completed}
           onChange={() => props.toggleTaskCompleted(props.id)}
         />
-        <label className={isImportant?"todo-label important":"todo-label"} htmlFor={props.id}>
+        <label className={props.isImportant ?"todo-label important":"todo-label"} htmlFor={props.id}>
           {props.name}
         </label>
       </div>
@@ -101,7 +99,7 @@ const Todo = (props) => {
         <button
           type="button"
           className="btn"
-         onClick={()=>setImportant(!isImportant)}
+         onClick={()=>props.MarkImportant(props.id)}
         >
           Important <span className="visually-hidden">{props.name}</span>
         </button>
