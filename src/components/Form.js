@@ -11,8 +11,6 @@ export const Form = (props) => {
       }
       function handleChange(e) {
         setName(e.target.value);
-
-
       }
     return (
         <div>
@@ -31,7 +29,7 @@ export const Form = (props) => {
           value={name}
           onChange={handleChange}
         />
-        <button type="submit" className="btn btn__primary btn__lg">
+        <button type="submit" className={props.isDark?"btn darkBtn__primary btn__lg" :"btn btn__primary btn__lg"}>
           Add
         </button>
       </form>
